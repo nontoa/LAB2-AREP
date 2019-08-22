@@ -32,14 +32,12 @@ public class App {
         LinkedList<Double> c1 = new LinkedList<Double>();
         while ((linea = br.readLine()) != null) {
             c1.add(Double.parseDouble(linea));
-        }*/
-        int x=0;
+        }*/      
         LinkedList<Double> c1 = new LinkedList<Double>();
         String[] parts = path.split(" ");
-        while(parts[x] != null){
+        for(int x=0;x<parts.length;x++){
             c1.add(Double.parseDouble(parts[x]));
-            x++;
-        }        
+        }       
         ArrayList<Double> op = new ArrayList<Double>();
         op = operation(c1);
         LinkedList<Double> respuesta = new LinkedList<Double>();

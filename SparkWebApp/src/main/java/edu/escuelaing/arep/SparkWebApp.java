@@ -7,6 +7,7 @@ package edu.escuelaing.arep;
 import static spark.Spark.*;
 import edu.escuelaing.arep.ASE.app.*;
 import java.io.IOException;
+import java.text.DecimalFormat;
 import spark.Request;
 import spark.Response;
 
@@ -66,11 +67,11 @@ public class SparkWebApp {
                 + "<center>"
                 + "      <h2>Ingrese los datos</h2>\n"
                 + "      <p>Ingrese los numeros separados por espacios en blanco.</p>\n"
-                + "       <form>"
-                + "           Conjunto de numeros:<br>\n"
-                + "           <input type=\"text\" placeholder=\"Numeros\" name=\"inputData\" ><br>\n"
-                //+ "           <input type=\"submit\" value=\"Calcular\">\n"
-                + "      <a href = \"/respuesta\" target = \"_self\">Ver Respuesta</a>\n"
+                + "       <form action=\"/respuesta\">\n"
+                + "           Conjunto de numeros:<br> <br>\n"
+                + "           <input type=\"text\" placeholder=\"Numeros\" name=\"inputData\" ><br><br>\n"
+                + "           <input type=\"submit\" value=\"Calcular\">\n"
+               // + "      <a href = \"/respuesta\" target = \"_self\">Ver Respuesta</a>\n"
                 + "       </form>\n"
                 + "</center>\n"
                 + "</body>\n"
@@ -79,15 +80,13 @@ public class SparkWebApp {
     }
 
     private static String logicaPage(Request req, Response res) throws IOException {        
-        String num = req.queryParams("inputData");
-        System.out.println(num);
+        String num = req.queryParams("inputData");        
         LinkedList<Double> respuesta = new LinkedList<Double>();
         App aplicacion = new App();
         respuesta = aplicacion.read(num);
-        media = respuesta.get(0);
-        desviacion = respuesta.get(1);
-        System.out.println(media);
-        System.out.println(desviacion);
+        DecimalFormat round= new DecimalFormat("#.00");      
+        media =respuesta.get(0);
+        desviacion = respuesta.get(1);        
         String c = "<!DOCTYPE html>\n"
                 + "<html>\n"
                 + "<head>\n"
@@ -97,8 +96,8 @@ public class SparkWebApp {
                 + "<center>\n"
                 + "<h1> Resultados </h1>\n"
                 + "<p> Los resultados son:</p> <br>\n"
-                + "<p> Media: " + media + "</p>\n"
-                + "<p> Desviacion: " + desviacion + "</p> <br>\n"
+                + "<p> Media: " + round.format(media) + "</p>\n"
+                + "<p> Desviacion: " + round.format(desviacion) + "</p> <br>\n"
                 + "<a href = \"/calculos\" target = \"_self\">Volver a la calculadora</a>\n"
                 + "</center>\n"
                 + "</body>\n"
