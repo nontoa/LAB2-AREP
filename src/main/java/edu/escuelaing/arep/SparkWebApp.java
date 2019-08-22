@@ -20,7 +20,7 @@ public class SparkWebApp {
     public static void main(String[] args) {
         port(getPort());
         //get("/hello", (req, res) -> "Hello Heroku");
-        get("/index", (req, res) -> indexPage(req, res));
+        get("/", (req, res) -> indexPage(req, res));
         get("/calculos", (req, res) -> calculosPage(req, res));
         get("/respuesta", (req, res) -> logicaPage(req, res));
 
