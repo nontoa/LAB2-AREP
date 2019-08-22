@@ -35,6 +35,17 @@ git clone https://github.com/nontoa/LAB2-AREP.git
 
 ![Screenshot](images/Diagrama.PNG)
 
+### Página Index:
+
+![Screenshot](images/Index.PNG)
+
+### Página Calculos:
+
+![Screenshot](images/Calculos.PNG)
+
+### Página Resultados:
+
+![Screenshot](images/Resultados.PNG)
 
 ## Autor
 
