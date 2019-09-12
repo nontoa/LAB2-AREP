@@ -47,9 +47,9 @@ git clone https://github.com/nontoa/LAB2-AREP.git
 
 ![Screenshot](images/Resultados.PNG)
 
-## Despliegeue en Heroku:
+## Despliegue en Heroku:
 
-https://lit-crag-90900.herokuapp.com
+* https://lit-crag-90900.herokuapp.com
 
 ## Autor
 
